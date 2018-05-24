@@ -51,7 +51,7 @@ app.set('port', port);
 
 // Set static path to Angular app in dist
 // Don't run in dev
-if (process.env.NODE_ENV !== 'dev') {
+if (process.env.MEAN_NODE_ENV !== 'dev') {
   app.use('/', express.static(path.join(__dirname, './dist')));
 }
 
@@ -65,7 +65,7 @@ require('./server/api')(app, config);
 
 // Pass routing to Angular app
 // Don't run in dev
-if (process.env.NODE_ENV !== 'dev') {
+if (process.env.MEAN_NODE_ENV !== 'dev') {
   app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, '/dist/index.html'));
   });
